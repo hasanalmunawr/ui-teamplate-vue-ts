@@ -8,10 +8,10 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '@/compon
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList, navigationMenuTriggerStyle } from '@/components/ui/navigation-menu';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import UserMenuContent from '@/components/UserMenuContent.vue';
-import { getInitials } from '@/composables/useInitials';
+import UserMenuContent from '@/components/ui/UserMenuContent.vue';
+import { getInitials } from '@/composable/useInitials.ts';
 import type { BreadcrumbItem, NavItem } from '@/types';
-import { Link, usePage } from '@inertiajs/vue3';
+import { RouterLink } from 'vue-router'
 import { BookOpen, Folder, LayoutGrid, Menu, Search } from 'lucide-vue-next';
 import { computed } from 'vue';
 
@@ -73,16 +73,16 @@ const rightNavItems: NavItem[] = [
               </SheetHeader>
               <div class="flex h-full flex-1 flex-col justify-between space-y-4 py-6">
                 <nav class="-mx-3 space-y-1">
-                  <Link
+                  <RouterLink
                     v-for="item in mainNavItems"
                     :key="item.title"
-                    :href="item.href"
+                    :to="item.href"
                     class="flex items-center gap-x-3 rounded-lg px-3 py-2 text-sm font-medium hover:bg-accent"
                     :class="activeItemStyles(item.href)"
                   >
                     <component v-if="item.icon" :is="item.icon" class="h-5 w-5" />
                     {{ item.title }}
-                  </Link>
+                  </RouterLink>
                 </nav>
                 <div class="flex flex-col space-y-4">
                   <a
@@ -102,22 +102,22 @@ const rightNavItems: NavItem[] = [
           </Sheet>
         </div>
 
-        <Link :href="route('dashboard')" class="flex items-center gap-x-2">
+        <RouterLink to="/dashboard" class="flex items-center gap-x-2">
           <AppLogo />
-        </Link>
+        </RouterLink>
 
         <!-- Desktop Menu -->
         <div class="hidden h-full lg:flex lg:flex-1">
           <NavigationMenu class="ml-10 flex h-full items-stretch">
             <NavigationMenuList class="flex h-full items-stretch space-x-2">
               <NavigationMenuItem v-for="(item, index) in mainNavItems" :key="index" class="relative flex h-full items-center">
-                <Link
+                <RouterLink
                   :class="[navigationMenuTriggerStyle(), activeItemStyles(item.href), 'h-9 cursor-pointer px-3']"
-                  :href="item.href"
+                  :to="item.href"
                 >
                   <component v-if="item.icon" :is="item.icon" class="mr-2 h-4 w-4" />
                   {{ item.title }}
-                </Link>
+                </RouterLink>
                 <div
                   v-if="isCurrentRoute(item.href)"
                   class="absolute bottom-0 left-0 h-0.5 w-full translate-y-px bg-black dark:bg-white"

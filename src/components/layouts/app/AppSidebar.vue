@@ -5,7 +5,7 @@ import NavUser from '@/components/nav/NavUser.vue';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
 import { RouterLink } from 'vue-router'
-import { LayoutGrid, ArrowLeftRight, CreditCard, ChartBarStacked } from 'lucide-vue-next';
+import { LayoutGrid, ArrowLeftRight } from 'lucide-vue-next';
 import AppLogo from '@/components/icons/AppLogo.vue';
 
 const mainNavItems: NavItem[] = [

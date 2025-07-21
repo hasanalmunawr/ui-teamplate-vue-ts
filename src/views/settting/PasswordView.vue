@@ -4,6 +4,7 @@ import SettingsLayout from '@/components/layouts/setting/SettingLayout.vue'
 import HeadingSmall from '@/components/setting/HeadingSmall.vue'
 // import InputError from '@/components/ui/input/InputError.vue'
 import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 import { type BreadcrumbItem } from '@/types';
 import { Button } from '@/components/ui/button'
 import { reactive, ref } from 'vue'

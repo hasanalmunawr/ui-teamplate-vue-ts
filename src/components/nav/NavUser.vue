@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import UserInfo from '@/components/ui/UserInfo.vue'
 import UserMenuContent from '@/components/ui/UserMenuContent.vue'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'

@@ -18,13 +18,8 @@ const router = createRouter({
 
     {
       path: '/dashboard',
-      name: 'home',
+      name: 'dashboard',
       component: DashboardView,
-    },
-    {
-      path: '/transaction',
-      name: 'transaction',
-      component: TransactionView,
     },
     {
       path: '/transaction',

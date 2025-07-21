@@ -1,30 +1,32 @@
 <script setup lang="ts">
 import AppLayout from '@/components/layouts/AppLayout.vue'
 import { type BreadcrumbItem } from '@/types'
-import InputError from '@/components/ui/input/InputError.vue'
+// import InputError from '@/components/ui/input/InputError.vue'
 import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 import HeadingSmall from '@/components/setting/HeadingSmall.vue'
 import SettingsLayout from '@/components/layouts/setting/SettingLayout.vue'
 import { Button } from '@/components/ui/button'
 import { reactive } from 'vue'
 
-const breadcrumbs: BreadcrumbItem[] = [
+const breadcrumbItems: BreadcrumbItem[] = [
   {
     title: 'Profile settings',
     href: '/settings/profile',
   },
-]
+];
 
 const form = reactive({
   name: 'Hasan Almunawar',
   email: 'hasanalmunawar9@gmail.com',
 })
+console.log('breadcrumbs:', breadcrumbItems)
+
 </script>
 
 <template>
-  <AppLayout :breadcrumbs="breadcrumbs">
+  <AppLayout :breadcrumbs="breadcrumbItems">
     <!--    <Head title="Profile settings" />-->
-
     <SettingsLayout>
       <div class="flex flex-col space-y-6">
         <HeadingSmall
@@ -89,7 +91,7 @@ const form = reactive({
         </form>
       </div>
 
-      <DeleteUser />
+<!--      <DeleteUser />-->
     </SettingsLayout>
   </AppLayout>
 </template>
