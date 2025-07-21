@@ -19,16 +19,16 @@ const mainNavItems: NavItem[] = [
     href: '/transaction',
     icon: ArrowLeftRight,
   },
-  {
-    title: 'Bank Account',
-    href: '/bank-account',
-    icon: CreditCard,
-  },
-  {
-    title: 'Budget',
-    href: '/budget',
-    icon: ChartBarStacked,
-  },
+  // {
+  //   title: 'Bank Account',
+  //   href: '/bank-account',
+  //   icon: CreditCard,
+  // },
+  // {
+  //   title: 'Budget',
+  //   href: '/budget',
+  //   icon: ChartBarStacked,
+  // },
 
 
 ];

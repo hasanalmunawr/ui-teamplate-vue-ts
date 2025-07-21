@@ -8,12 +8,16 @@ import VerifyEmailView from '@/views/auth/VerifyEmailView.vue'
 import DashboardView from '@/views/DashboardView.vue'
 import TransactionView from '@/views/Transaction/Index.vue'
 
+import AppearanceView from '@/views/settting/AppearanceView.vue'
+import PasswordView from '@/views/settting/PasswordView.vue'
+import ProfileView from '@/views/settting/ProfileView.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
 
     {
-      path: '/',
+      path: '/dashboard',
       name: 'home',
       component: DashboardView,
     },
@@ -27,6 +31,23 @@ const router = createRouter({
       name: 'transaction',
       component: TransactionView,
     },
+
+    {
+      path: '/settings/appearance',
+      name: 'settings-appearance',
+      component: AppearanceView,
+    },
+    {
+      path: '/settings/password',
+      name: 'settings-password',
+      component: PasswordView,
+    },
+    {
+      path: '/settings/profile',
+      name: 'settings-profile',
+      component: ProfileView,
+    },
+
 
 
     {
