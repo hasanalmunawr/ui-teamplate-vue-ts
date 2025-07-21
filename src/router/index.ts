@@ -4,16 +4,30 @@ import RegisterView from '@/views/auth/RegisterView.vue'
 import ResetPasswordView from '@/views/auth/ResetPasswordView.vue'
 import ForgotPasswordView from '@/views/auth/ForgotPasswordView.vue'
 import VerifyEmailView from '@/views/auth/VerifyEmailView.vue'
+
 import DashboardView from '@/views/DashboardView.vue'
+import TransactionView from '@/views/Transaction/Index.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+
     {
       path: '/',
       name: 'home',
       component: DashboardView,
     },
+    {
+      path: '/transaction',
+      name: 'transaction',
+      component: TransactionView,
+    },
+    {
+      path: '/transaction',
+      name: 'transaction',
+      component: TransactionView,
+    },
+
 
     {
       path: '/login',
