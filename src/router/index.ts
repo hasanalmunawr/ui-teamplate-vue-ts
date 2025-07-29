@@ -12,35 +12,46 @@ import AppearanceView from '@/views/settting/AppearanceView.vue'
 import PasswordView from '@/views/settting/PasswordView.vue'
 import ProfileView from '@/views/settting/ProfileView.vue'
 
+import { useAuthStore } from '@/stores/auth.ts'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
 
     {
+      path: '/',
+      redirect: '/dashboard',
+    },
+    {
       path: '/dashboard',
       name: 'dashboard',
       component: DashboardView,
+      meta: { requiresAuth: true }
     },
     {
       path: '/transaction',
       name: 'transaction',
       component: TransactionView,
+      meta: { requiresAuth: true }
     },
 
     {
       path: '/settings/appearance',
       name: 'settings-appearance',
       component: AppearanceView,
+      meta: { requiresAuth: true }
     },
     {
       path: '/settings/password',
       name: 'settings-password',
       component: PasswordView,
+      meta: { requiresAuth: true }
     },
     {
       path: '/settings/profile',
       name: 'settings-profile',
       component: ProfileView,
+      meta: { requiresAuth: true }
     },
 
 
@@ -73,15 +84,17 @@ const router = createRouter({
     },
 
 
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue'),
-    },
   ],
-})
+}).beforeEach(async (to, from) => {
+  const authStore = useAuthStore();
+  await authStore.getUser();
+  if (authStore.user && to.meta.guest) {
+    return { name: "dashboard" };
+  }
+
+  if (!authStore.user && to.meta.auth) {
+    return { name: "login" };
+  }
+});
 
 export default router

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { reactive } from 'vue';
 import axios from 'axios';
-import { LoaderCircle } from 'lucide-vue-next';
 import AuthBase from '@/components/layouts/AuthLayout.vue';
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { Button } from '@/components/ui/button'
 import InputError from '@/components/ui/input/InputError.vue'
 import TextLink from '@/components/ui/link/TextLink.vue'
 
@@ -53,8 +53,7 @@ const submit = async () => {
         </div>
 
         <div class="my-6 flex items-center justify-start">
-          <Button class="w-full" :disabled="form.processing">
-            <LoaderCircle v-if="form.processing" class="h-4 w-4 animate-spin" />
+          <Button class="w-full">
             Email password reset link
           </Button>
         </div>

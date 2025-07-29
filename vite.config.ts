@@ -16,4 +16,16 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
-})
+  server: {
+    proxy: {
+      "/api": {
+        target: "http://localhosct:8088",
+        changeOrigin: true,
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      },
+    },
+  }
+});

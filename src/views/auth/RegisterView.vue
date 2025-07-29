@@ -20,25 +20,25 @@ const form = reactive({
 const submit = async () => {
   form.processing = true;
   form.errors = {};
-
-  try {
-    const response = await axios.post('/register', {
-      name: form.name,
-      email: form.email,
-      password: form.password,
-      password_confirmation: form.password_confirmation,
-    });
-
-    // Redirect or handle success
-    window.location.href = response.data.redirect || '/dashboard';
-  } catch (error: any) {
-    if (error.response?.status === 422) {
-      form.errors = error.response.data.errors || {};
-    }
-  } finally {
-    form.password = '';
-    form.processing = false;
-  }
+  alert("kdfa");
+  // try {
+  //   const response = await axios.post('/register', {
+  //     name: form.name,
+  //     email: form.email,
+  //     password: form.password,
+  //     password_confirmation: form.password_confirmation,
+  //   });
+  //
+  //   // Redirect or handle success
+  //   window.location.href = response.data.redirect || '/dashboard';
+  // } catch (error: any) {
+  //   if (error.response?.status === 422) {
+  //     form.errors = error.response.data.errors || {};
+  //   }
+  // } finally {
+  //   form.password = '';
+  //   form.processing = false;
+  // }
 };
 </script>
 

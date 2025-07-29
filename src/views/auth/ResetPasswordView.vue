@@ -5,6 +5,7 @@ import { LoaderCircle } from 'lucide-vue-next';
 import AuthBase from '@/components/layouts/AuthLayout.vue';
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { Button } from '@/components/ui/button'
 import InputError from '@/components/ui/input/InputError.vue'
 
 interface Props {
@@ -51,12 +52,6 @@ const submit = async () => {
 
     <form @submit.prevent="submit">
       <div class="grid gap-6">
-        <div class="grid gap-2">
-          <Label for="email">Email</Label>
-          <Input id="email" type="email" name="email" autocomplete="email" v-model="form.email" class="mt-1 block w-full" readonly />
-          <InputError :message="form.errors.email" class="mt-2" />
-        </div>
-
         <div class="grid gap-2">
           <Label for="password">Password</Label>
           <Input

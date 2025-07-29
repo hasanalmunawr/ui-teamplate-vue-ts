@@ -9,23 +9,22 @@ import SettingsLayout from '@/components/layouts/setting/SettingLayout.vue'
 import { Button } from '@/components/ui/button'
 import { reactive } from 'vue'
 
-const breadcrumbItems: BreadcrumbItem[] = [
-  {
-    title: 'Profile settings',
-    href: '/settings/profile',
-  },
-];
+// const breadcrumbItems: BreadcrumbItem[] = [
+//   {
+//     title: 'Profile settings',
+//     href: '/settings/profile',
+//   },
+// ];
 
 const form = reactive({
   name: 'Hasan Almunawar',
   email: 'hasanalmunawar9@gmail.com',
 })
-console.log('breadcrumbs:', breadcrumbItems)
 
 </script>
 
 <template>
-  <AppLayout :breadcrumbs="breadcrumbItems">
+  <AppLayout>
     <!--    <Head title="Profile settings" />-->
     <SettingsLayout>
       <div class="flex flex-col space-y-6">
@@ -61,37 +60,11 @@ console.log('breadcrumbs:', breadcrumbItems)
             />
             <!--            <InputError class="mt-2" :message="form.errors.email" />-->
           </div>
-          <p class="-mt-4 text-sm text-muted-foreground">
-            Your email addrss is unverified.
-            <Button
-              method="post"
-              as="button"
-              class="text-foreground underline decoration-neutral-300 underline-offset-4 transition-colors duration-300 ease-out hover:decoration-current! dark:decoration-neutral-500"
-            >
-              Click here to resend the verification email.
-            </Button>
-          </p>
-
-          <!--            <div v-if="status === 'verification-link-sent'" class="mt-2 text-sm font-medium text-green-600">-->
-          <!--              A new verification link has been sent to your email address.-->
-          <!--            </div>-->
-
           <div class="flex items-center gap-4">
-            <Button :disabled="form.name">Save</Button>
-
-            <Transition
-              enter-active-class="transition ease-in-out"
-              enter-from-class="opacity-0"
-              leave-active-class="transition ease-in-out"
-              leave-to-class="opacity-0"
-            >
-              <!--              <p v-show="form.recentlySuccessful" class="text-sm text-neutral-600">Saved.</p>-->
-            </Transition>
+            <Button>Save</Button>
           </div>
         </form>
       </div>
-
-<!--      <DeleteUser />-->
     </SettingsLayout>
   </AppLayout>
 </template>

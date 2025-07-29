@@ -34,7 +34,7 @@ const { getInitials } = useInitials()
       {{ props.user.email }}
     </span>
     <span  class="truncate text-xs text-muted-foreground">
-      hasanalmunawar0@gmail.com
+
     </span>
   </div>
 </template>

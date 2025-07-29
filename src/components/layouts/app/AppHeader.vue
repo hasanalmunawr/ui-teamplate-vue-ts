@@ -23,15 +23,6 @@ const props = withDefaults(defineProps<Props>(), {
   breadcrumbs: () => [],
 });
 
-const page = usePage();
-const auth = computed(() => page.props.auth);
-
-const isCurrentRoute = computed(() => (url: string) => page.url === url);
-
-const activeItemStyles = computed(
-  () => (url: string) => (isCurrentRoute.value(url) ? 'text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100' : ''),
-);
-
 const mainNavItems: NavItem[] = [
   {
     title: 'Dashboard',
@@ -78,8 +69,8 @@ const rightNavItems: NavItem[] = [
                     :key="item.title"
                     :to="item.href"
                     class="flex items-center gap-x-3 rounded-lg px-3 py-2 text-sm font-medium hover:bg-accent"
-                    :class="activeItemStyles(item.href)"
                   >
+<!--                    :class="activeItemStyles(item.href)"-->
                     <component v-if="item.icon" :is="item.icon" class="h-5 w-5" />
                     {{ item.title }}
                   </RouterLink>

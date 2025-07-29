@@ -3,14 +3,14 @@ import type { HTMLAttributes } from 'vue'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { PanelLeft } from 'lucide-vue-next'
-// import { useSidebarStore  } from '@/stores/sidebar.ts'
 import { useSidebar } from './utils'
+
+
 
 const props = defineProps<{
   class?: HTMLAttributes['class']
 }>()
 
-// const sidebar = useSidebarStore()
 const { toggleSidebar } = useSidebar()
 </script>
 

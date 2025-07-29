@@ -9,22 +9,27 @@ defineProps<{
 </script>
 
 <template>
-  <div class="flex min-h-svh flex-col items-center justify-center gap-6 bg-background p-6 md:p-10">
-    <div class="w-full max-w-sm ">
-      <div class="flex flex-col gap-8">
-        <div class="flex flex-col items-center gap-4">
-          <RouterLink to="/" class="flex flex-col items-center gap-2 font-medium">
-            <div class="mb-1 flex h-9 w-9 items-center justify-center rounded-md">
-              <AppLogoIcon class="size-9 fill-current text-[var(--foreground)] dark:text-white" />
+  <div class="flex min-h-svh items-center justify-center bg-background px-4 py-8 md:px-10">
+    <div class="w-full max-w-sm">
+      <div class="rounded-2xl bg-white shadow-lg dark:bg-card p-6 md:p-8">
+        <div class="flex flex-col gap-6">
+          <!-- Logo & Title -->
+          <div class="flex flex-col items-center gap-3">
+            <RouterLink to="/" class="flex flex-col items-center gap-2">
+              <div class="flex h-10 w-10 items-center justify-center rounded-md bg-muted">
+                <AppLogoIcon class="size-8 fill-current text-foreground dark:text-white" />
+              </div>
+              <span class="sr-only">{{ title }}</span>
+            </RouterLink>
+            <div class="text-center space-y-1">
+              <h1 class="text-xl font-semibold text-foreground">{{ title }}</h1>
+              <p class="text-sm text-muted-foreground">{{ description }}</p>
             </div>
-            <span class="sr-only">{{ title }}</span>
-          </RouterLink>
-          <div class="space-y-2 text-center">
-            <h1 class="text-xl font-medium">{{ title }}</h1>
-            <p class="text-center text-sm text-muted-foreground">{{ description }}</p>
           </div>
+
+          <!-- Form Content -->
+          <slot />
         </div>
-        <slot />
       </div>
     </div>
   </div>

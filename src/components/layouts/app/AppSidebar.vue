@@ -5,7 +5,7 @@ import NavUser from '@/components/nav/NavUser.vue';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
 import { RouterLink } from 'vue-router'
-import { LayoutGrid, ArrowLeftRight } from 'lucide-vue-next';
+import { LayoutGrid, ArrowLeftRight, CreditCard, ChartBarStacked } from 'lucide-vue-next';
 import AppLogo from '@/components/icons/AppLogo.vue';
 
 const mainNavItems: NavItem[] = [
@@ -19,16 +19,16 @@ const mainNavItems: NavItem[] = [
     href: '/transaction',
     icon: ArrowLeftRight,
   },
-  // {
-  //   title: 'Bank Account',
-  //   href: '/bank-account',
-  //   icon: CreditCard,
-  // },
-  // {
-  //   title: 'Budget',
-  //   href: '/budget',
-  //   icon: ChartBarStacked,
-  // },
+  {
+    title: 'Bank Account',
+    href: '/transaction',
+    icon: CreditCard,
+  },
+  {
+    title: 'Budget',
+    href: '/budget',
+    icon: ChartBarStacked,
+  },
 
 
 ];
@@ -48,7 +48,7 @@ const footerNavItems: NavItem[] = [
       <SidebarMenu>
         <SidebarMenuItem>
           <SidebarMenuButton size="lg" as-child>
-            <RouterLink to="home">
+            <RouterLink to="/">
               <AppLogo />
             </RouterLink>
           </SidebarMenuButton>
